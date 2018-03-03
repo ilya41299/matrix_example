@@ -59,7 +59,7 @@ matrix_t matrix_t::operator +( matrix_t const & other ) const
 	
 	if (rows_ == other.rows_ && collumns_ == other.collumns_) {
 	  	result.elements_ = new float *[rows_];
-		for (std::size_t i = 0; i<collumns_; i++) {
+		for (std::size_t i = 0; i<rows_; i++) {
 			result.elements_[i] = new float [collumns_];
 		}
 		result.rows_ = rows_;
@@ -85,7 +85,7 @@ matrix_t matrix_t::operator -( matrix_t const & other ) const
 	
 	if (rows_ == other.rows_ && collumns_ == other.collumns_) {
 	  	result.elements_ = new float *[rows_];
-		for (std::size_t i = 0; i<collumns_; i++) {
+		for (std::size_t i = 0; i<rows_; i++) {
 			result.elements_[i] = new float [collumns_];
 		}
 		result.rows_ = rows_;
