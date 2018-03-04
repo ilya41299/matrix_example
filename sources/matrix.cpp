@@ -23,7 +23,7 @@ matrix_t & matrix_t::operator =( matrix_t const & other )
 	{
 		if (elements_ != nullptr && rows_  && columns_)
 		{
-			for (unsigned int i = 0; i < rows_; ++i)
+			for (std::size_t i = 0; i < rows_; ++i)
 			{
 				delete[] elements_[i];
 			}
@@ -32,10 +32,10 @@ matrix_t & matrix_t::operator =( matrix_t const & other )
 		rows_ = other.rows_;
 		columns_ = other.columns_;
 		elements_ = new int*[rows_];
-		for (unsigned int i = 0; i < rows_; ++i)
+		for (std::size_t i = 0; i < rows_; ++i)
 		{
 			elements_[i] = new int[columns_];
-			for (unsigned int j = 0; j < columns_; ++j)
+			for (std::size_t j = 0; j < columns_; ++j)
 			{
 				elements_[i][j] = other.elements_[i][j];
 			}
@@ -45,7 +45,7 @@ matrix_t & matrix_t::operator =( matrix_t const & other )
 
 matrix_t::~matrix_t()
 {
-	for (unsigned int i = 0; i < this->rows_; i++)
+	for (std::size_t i = 0; i < this->rows_; i++)
         {
             delete[] this->elements_[i];
         }
@@ -72,10 +72,10 @@ matrix_t matrix_t::operator +( matrix_t const & other ) const
             result.rows_ = this->rows_;
             result.columns_ = this->columns_;
             result.elements_ = new int*[rows_];
-            for (unsigned int i = 0; i < rows_; i++)
+            for (std::size_t i = 0; i < rows_; i++)
             {
                 result.elements[i] = new int[columns_];
-                for (unsigned int j = 0; j < columns_; j++)
+                for (std::size_t j = 0; j < columns_; j++)
                 {
                     result.elements[i][j] = this->elements[i][j] + other.elements[i][j];
                 }
@@ -83,8 +83,8 @@ matrix_t matrix_t::operator +( matrix_t const & other ) const
         }
         else
         {
-            cout << "An error has occured while reading input data";
-            cout << endl;
+            std::cout << "An error has occured while reading input data";
+             std::endl;
         }
         return result;
 }
@@ -97,10 +97,10 @@ matrix_t matrix_t::operator -( matrix_t const & other ) const
             result.rows_ = this->rows_;
             result.columns_ = this->columns_;
             result.elements_ = new int*[rows_];
-            for (unsigned int i = 0; i < rows_; i++)
+            for (std::size_t i = 0; i < rows_; i++)
             {
                 result.elements_[i] = new int[columns_];
-                for (unsigned int j = 0; j < columns_; j++)
+                for (std::size_t j = 0; j < columns_; j++)
                 {
                     result.elements_[i][j] = this->elements_[i][j] - other.elements_[i][j];
                 }
@@ -108,8 +108,8 @@ matrix_t matrix_t::operator -( matrix_t const & other ) const
         }
         else
         {
-            cout << "An error has occured while reading input data";
-            cout << endl;
+             std::cout << "An error has occured while reading input data";
+             std::endl;
         }
         return result;
 }
@@ -123,13 +123,13 @@ matrix_t matrix_t::operator *( matrix_t const & other ) const
             float sum = 0;
             result.columns_ = other.columns_;
             result.elements_ = new int*[result.rows_];
-            for (unsigned int i = 0; i < result.rows_; ++i)
+            for (std::size_t i = 0; i < result.rows_; ++i)
             {
                 result.data[i] = new int[result.columns_];
-                for (unsigned int j = 0; j < result.columns_; ++j)
+                for (std::size_t j = 0; j < result.columns_; ++j)
                 {
                     sum = 0;
-                    for (unsigned int k = 0; k < this->columns_; ++k)
+                    for (std::size_t k = 0; k < this->columns_; ++k)
                     {
                         sum += this->elements_[i][k] * other.elements_[k][j];
                     }
@@ -139,8 +139,8 @@ matrix_t matrix_t::operator *( matrix_t const & other ) const
         }
         else
         {
-            cout << "An error has occured while reading input data";
-            cout << endl;
+            std::cout << "An error has occured while reading input data";
+             std::endl;
         }
         return result;
 }
@@ -155,8 +155,8 @@ matrix_t & matrix_t::operator -=( matrix_t const & other )
 		}
 	}
 	else {
-		 cout << "An error has occured while reading input data";
-            cout << endl;
+		std::cout << "An error has occured while reading input data";
+             std::endl;
 	}
 	
 	return *this;
@@ -172,8 +172,8 @@ matrix_t & matrix_t::operator +=( matrix_t const & other )
 		}
 	}
 	else {
-		 cout << "An error has occured while reading input data";
-            cout << endl;
+		 std::cout << "An error has occured while reading input data";
+             std::endl;
 	}
 	
 	return *this;
@@ -203,8 +203,8 @@ matrix_t & matrix_t::operator *=( matrix_t const & other )
 		*this = result;
 	}
 	else {
-		 cout << "An error has occured while reading input data";
-            cout << endl;
+		std::cout << "An error has occured while reading input data";
+             std::endl;
 	}
 	
 	return *this;
