@@ -10,7 +10,7 @@ matrix_t::matrix_t(matrix_t const & other)
 	collumns_ = other.collumns_;
 	elements_ = new float *[rows_];
 	for (std::size_t i = 0; i < rows_; ++i) {
-		elements_[i] = new float[collumns_];
+		elements_[i] = new float[this->collumns_];
 		for (std::size_t j = 0; j < collumns_; ++j) {
 			elements_[i][j] = other.elements_[i][j];
 		}
@@ -21,23 +21,23 @@ matrix_t & matrix_t::operator =(matrix_t const & other)
 {
 	if (this != &other)
 	{
-		if (data != nullptr && rows && columns)
+		if (elements_ != nullptr && rows && collumns)
 		{
 			for (size_t i = 0; i < rows; ++i)
 			{
-				delete[] data[i];
+				delete[] elements_[i];
 			}
-			delete[] data;
+			delete[] elements_;
 		}
 		rows = other.rows;
-		columns = other.columns;
-		data = new float*[rows];
+		collumns = other.collumns;
+		elements_ = new float*[rows];
 		for (size_t i = 0; i < rows; ++i)
 		{
-			data[i] = new float[columns];
-			for (size_t j = 0; j < columns; ++j)
+			elements_[i] = new float[collumns];
+			for (size_t j = 0; j < collumns; ++j)
 			{
-				data[i][j] = other.data[i][j];
+				elements_[i][j] = other.elements_[i][j];
 			}
 		}
 		return *this;
@@ -48,10 +48,10 @@ matrix_t::~matrix_t()
 {
 	for (size_t i = 0; i < this->rows; i++)
 	{
-		delete[] this->data[i];
+		delete[] this->elements_[i];
 	}
-	delete[] this->data;
-	columns = 0;
+	delete[] this->elements_;
+	collumns = 0;
 	rows = 0;
 }
 
