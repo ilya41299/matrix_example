@@ -8,7 +8,7 @@ TEST_CASE("creating matrix")
 {
     matrix_t matrix;
     REQUIRE( matrix.rows() == 0 );
-    REQUIRE( matrix.collumns() == 0 );
+    REQUIRE( matrix.columns() == 0 );
 }
 
 TEST_CASE("reading matrix")
@@ -23,7 +23,7 @@ TEST_CASE("reading matrix")
     
     REQUIRE( matrix.read( istream ) );
     REQUIRE( matrix.rows() == 3 );
-    REQUIRE( matrix.collumns() == 3 );
+    REQUIRE( matrix.columns() == 3 );
     
     std::ostringstream ostream;
     matrix.write( ostream );
