@@ -84,8 +84,7 @@ matrix_t matrix_t::operator +(matrix_t const & other) const
 		}
 	}
 	else {
-		std::cout << "An error has occured while reading input data";
-		std::endl;
+		std::cout << "An error has occured while reading input data\n";
 	}
 
 	return result;
@@ -110,8 +109,7 @@ matrix_t matrix_t::operator -(matrix_t const & other) const
 		}
 	}
 	else {
-		std::cout << "An error has occured while reading input data";
-		std::endl;
+		std::cout << "An error has occured while reading input data\n";
 	}
 
 	return result;
@@ -140,8 +138,7 @@ matrix_t matrix_t::operator *(matrix_t const & other) const
 		}
 	}
 	else {
-		std::cout << "An error has occured while reading input data";
-		std::endl;
+		std::cout << "An error has occured while reading input data\n";
 	}
 
 	return result;
@@ -157,8 +154,7 @@ matrix_t & matrix_t::operator -=(matrix_t const & other)
 		}
 	}
 	else {
-		std::cout << "An error has occured while reading input data";
-		std::endl;
+		std::cout << "An error has occured while reading input data\n";
 	}
 
 	return *this;
@@ -174,8 +170,7 @@ matrix_t & matrix_t::operator +=(matrix_t const & other)
 		}
 	}
 	else {
-		std::cout << "An error has occured while reading input data";
-		std::endl;
+		std::cout << "An error has occured while reading input data\n";
 	}
 
 	return *this;
@@ -205,8 +200,7 @@ matrix_t & matrix_t::operator *=(matrix_t const & other)
 		*this = result;
 	}
 	else {
-		std::cout << "An error has occured while reading input data";
-		std::endl;
+		std::cout << "An error has occured while reading input data\n";
 	}
 
 	return *this;
