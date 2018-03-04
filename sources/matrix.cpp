@@ -21,21 +21,21 @@ matrix_t & matrix_t::operator =(matrix_t const & other)
 {
 	if (this != &other)
 	{
-		if (elements_ != nullptr && rows && collumns)
+		if (elements_ != nullptr && this->rows_ && this->collumns_)
 		{
-			for (size_t i = 0; i < rows; ++i)
+			for (size_t i = 0; i < rows_; ++i)
 			{
 				delete[] elements_[i];
 			}
 			delete[] elements_;
 		}
-		rows = other.rows;
-		collumns = other.collumns;
-		elements_ = new float*[rows];
-		for (size_t i = 0; i < rows; ++i)
+		rows_ = other.rows_;
+		collumns_ = other.collumns_;
+		elements_ = new float*[rows_];
+		for (size_t i = 0; i < rows_; ++i)
 		{
-			elements_[i] = new float[collumns];
-			for (size_t j = 0; j < collumns; ++j)
+			elements_[i] = new float[collumns_];
+			for (size_t j = 0; j < collumns_; ++j)
 			{
 				elements_[i][j] = other.elements_[i][j];
 			}
@@ -46,13 +46,13 @@ matrix_t & matrix_t::operator =(matrix_t const & other)
 
 matrix_t::~matrix_t()
 {
-	for (size_t i = 0; i < this->rows; i++)
+	for (size_t i = 0; i < this->rows_; i++)
 	{
 		delete[] this->elements_[i];
 	}
 	delete[] this->elements_;
-	collumns = 0;
-	rows = 0;
+	collumns_ = 0;
+	rows_ = 0;
 }
 
 std::size_t matrix_t::rows() const
