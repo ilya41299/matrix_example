@@ -2,19 +2,19 @@
 matrix_t::matrix_t()
     : elements_{ nullptr }
     , rows_{ 0 }
-    , collumns_{ 0 }
+    , columns_{ 0 }
 {
 }
 
 matrix_t::matrix_t(matrix_t const& other)
 {
     rows_ = other.rows_;
-    collumns_ = other.collumns_;
+    columns_ = other.columns_;
     elements_ = new float*[rows_];
     for (std::size_t i = 0; i < rows_; ++i)
     {
-        elements_[i] = new float[collumns_];
-        for (std::size_t j = 0; j < collumns_; ++j)
+        elements_[i] = new float[columns_];
+        for (std::size_t j = 0; j < columns_; ++j)
         {
             elements_[i][j] = other.elements_[i][j];
         }
