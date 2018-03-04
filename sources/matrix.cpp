@@ -1,6 +1,6 @@
 #include "matrix.hpp"
 
-matrix_t::matrix_t() : elements_{ nullptr }, rows_{ 0 }, collumns_{ 0 }
+matrix_t::matrix_t(): elements_{ nullptr }, rows_{ 0 }, collumns_{ 0 }
 {
 }
 
@@ -16,33 +16,24 @@ matrix_t::matrix_t(matrix_t const & other)
 		}
 	}
 }
-
 matrix_t & matrix_t::operator =(matrix_t const & other)
 {
-	if (this != &other)
-	{
-		if (elements_ != nullptr && this->rows_ && this->collumns_)
-		{
-			for (size_t i = 0; i < rows_; ++i)
-			{
-				delete[] elements_[i];
-			}
-			delete[] elements_;
-		}
-		rows_ = other.rows_;
-		collumns_ = other.collumns_;
-		elements_ = new float*[rows_];
-		for (size_t i = 0; i < rows_; ++i)
-		{
-			elements_[i] = new float[collumns_];
-			for (size_t j = 0; j < collumns_; ++j)
-			{
-				elements_[i][j] = other.elements_[i][j];
-			}
-		}
-		return *this;
+	for (std::size_t i = 0; i < rows_; ++i) {
+		delete[] elements_[i];
 	}
+	delete[] elements_;
+	rows_ = other.rows_;
+	collumns_ = other.collumns_;
+	elements_ = new float *[rows_];
+	for (std::size_t i = 0; i < rows_; ++i) {
+		elements_[i] = new float[collumns_];
+		for (std::size_t j = 0; j < collumns_; ++j) {
+			elements_[i][j] = other.elements_[i][j];
+		}
+	}
+	return *this;
 }
+
 
 matrix_t::~matrix_t()
 {
@@ -140,7 +131,6 @@ matrix_t matrix_t::operator *(matrix_t const & other) const
 	else {
 		std::cout << "An error has occured while reading input data\n";
 	}
-
 	return result;
 }
 
