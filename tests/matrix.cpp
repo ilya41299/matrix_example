@@ -42,7 +42,7 @@ TEST_CASE("add matrix")
 		"2 2 \n"
 		"1 1 " };
 	std::string res_stroka{
-		"3, 3\n"
+		"3, 2\n"
 		"4 4 \n"
 		"4 4 \n"
 		"4 4 " };
@@ -75,7 +75,7 @@ TEST_CASE("sub matrix")
 	std::string res_stroka{
 		"2, 3\n"
 		"0 1 2\n"
-		"3 4 5"};
+		"3 4 5" };
 
 	matrix_t matrix1, matrix2, result_matrix;
 	std::istringstream istream1{ stroka1 };
@@ -96,19 +96,19 @@ TEST_CASE("mul matrix")
 {
 	std::string stroka1{
 		"3, 3\n"
-		"3 -1 2 \n"
-		"4 2 0 \n"
-		"-5 6 1" };
+		"2 2 2\n"
+		"2 2 2\n"
+		"2 2 2" };
 	std::string stroka2{
-		"3, 2\n"
-		"8 1\n"
-		"7 2\n"
-		"2 -3"};
+		"3, 3\n"
+		"1 1 1 \n"
+		"1 1 1 \n"
+		"1 1 1" };
 	std::string res_stroka{
-		"3, 2\n"
-		"21 5 \n"
-		"46 8 \n"
-		"4 4" };
+		"3, 3\n"
+		"6 6 6\n"
+		"6 6 6\n"
+		"6 6 6" };
 
 	matrix_t matrix1, matrix2, result_matrix;
 	std::istringstream istream1{ stroka1 };
@@ -162,19 +162,19 @@ TEST_CASE("add= matrix")
 {
 	std::string stroka1{
 		"3, 2\n"
-		"1 1 \n"
-		"1 1 \n"
-		"1 1 " };
-	std::string stroka2{
+		"2 2 \n"
+		"2 2 \n"
+		"2 2" };
 		"3, 2\n"
-		"2 2 \n"
-		"2 2 \n"
-		"2 2 " };
+	std::string stroka2{
+		"1 1 \n"
+		"1 1 \n"
+		"1 1" };
 	std::string res_stroka{
 		"3, 2\n"
 		"3 3 \n"
 		"3 3 \n"
-		"3 3 " };
+		"3 3" };
 
 	matrix_t matrix1, matrix2;
 	std::istringstream istream1{ stroka1 };
@@ -195,19 +195,19 @@ TEST_CASE("mul= matrix")
 {
 	std::string stroka1{
 		"3, 3\n"
-		"3 -1 2\n"
-		"4 2 0 \n"
-	   "-5 6 1" };
+		"2 2 2\n"
+		"2 2 2\n"
+		"2 2 2" };
 	std::string stroka2{
-		"3, 2\n"
-		"8 1\n"
-		"7 2\n"
-		"2 -3" };
+		"3, 3\n"
+		"1 1 1\n"
+		"1 1 1\n"
+		"1 1 1" };
 	std::string res_stroka{
-		"3, 2\n"
-		"21 -5\n"
-		"46 8\n"
-		"4 4" };
+		"3, 3\n"
+		"6 6 6\n"
+		"6 6 6\n"
+		"6 6 6" };
 
 	matrix_t matrix1, matrix2;
 	std::istringstream istream1{ stroka1 };
