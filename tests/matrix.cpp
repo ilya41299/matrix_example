@@ -165,8 +165,9 @@ TEST_CASE("add= matrix")
 		"2 2 \n"
 		"2 2 \n"
 		"2 2" };
-		"3, 2\n"
+
 	std::string stroka2{
+		"3, 2\n"
 		"1 1 \n"
 		"1 1 \n"
 		"1 1" };
