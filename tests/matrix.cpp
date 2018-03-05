@@ -32,20 +32,17 @@ TEST_CASE("reading matrix")
 TEST_CASE("add matrix")
 {
 	std::string stroka1{
-		"3, 2\n"
-		"1 1 \n"
-		"2 2 \n"
-		"3 3 " };
+		"2, 3\n"
+		"1 1 1\n"
+		"1 1 1"};
 	std::string stroka2{
-		"3, 2\n"
-		"3 3 \n"
-		"2 2 \n"
-		"1 1 " };
+		"2, 3\n"
+		"2 2 2\n"
+		"2 2 2"};
 	std::string res_stroka{
-		"3, 2\n"
-		"4 4 \n"
-		"4 4 \n"
-		"4 4 " };
+		"2, 3\n"
+		"3 3 3\n"
+		"3 3 3"};
 
 	matrix_t matrix1, matrix2, result_matrix;
 	std::istringstream istream1{ stroka1 };
@@ -161,21 +158,18 @@ TEST_CASE("sub= matrix")
 TEST_CASE("add= matrix")
 {
 	std::string stroka1{
-		"3, 2\n"
-		"2 2 \n"
-		"2 2 \n"
-		"2 2" };
+		"2, 3n"
+		"3 3 3\n"
+		"3 3 3};
 
 	std::string stroka2{
-		"3, 2\n"
-		"1 1 \n"
-		"1 1 \n"
-		"1 1" };
+		"2, 3\n"
+		"1 1 1\n"
+		"1 1 1" };
 	std::string res_stroka{
-		"3, 2\n"
-		"3 3 \n"
-		"3 3 \n"
-		"3 3" };
+		"2, 3\n"
+		"4 4 4\n"
+		"4 4 4" };
 
 	matrix_t matrix1, matrix2;
 	std::istringstream istream1{ stroka1 };
