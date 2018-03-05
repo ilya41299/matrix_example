@@ -20,29 +20,33 @@ matrix_t::matrix_t(matrix_t const& other)
     }
 }
 
-matrix_t & matrix_t::operator =(matrix_t const & other)
+matrix_t& matrix_t::operator=(matrix_t const& other)
 {
-	if (this != &other) {
-		for (std::size_t i = 0; i < rows_; ++i) {
-			delete[] elements_[i];
-		}
-		delete[] elements_;
-
-		rows_ = other.rows_;
-		collumns_ = other.collumns_;
-		elements_ = new float *[rows_];
-		for (std::size_t i = 0; i < rows_; ++i) {
-			elements_[i] = new float[collumns_];
-		}
-		for (std::size_t i = 0; i < rows_; ++i) {
-			for (std::size_t j = 0; j < collumns_; ++j) {
-				elements_[i][j] = other.elements_[i][j];
-			}
-		}
-
-	}
-	return *this;
+    if (this != &other)
+    {
+        if (elements_ != nullptr && rows_ && collumns_)
+        {
+            for (std::size_t i = 0; i < rows_; ++i)
+            {
+                delete[] elements_[i];
+            }
+            delete[] elements_;
+        }
+        rows_ = other.rows_;
+        collumns_ = other.collumns_;
+        elements_ = new float*[rows_];
+        for (std::size_t i = 0; i < rows_; ++i)
+        {
+            elements_[i] = new float[collumns_];
+            for (std::size_t j = 0; j < collumns_; ++j)
+            {
+                this->elements_[i][j] = other.elements_[i][j];
+            }
+        }
+    }
+    return *this;
 }
+
 
 matrix_t::~matrix_t()
 {
