@@ -20,37 +20,33 @@ matrix_t::matrix_t(matrix_t const& other)
     }
 }
 
-matrix_t& matrix_t::operator=(matrix_t const& other)
+matrix_t & matrix_t::operator =(matrix_t const & other)
 {
-    if (this != &other)
-    {
-        if (elements_ != nullptr && rows_ && collumns_)
-        {
-            for (size_t i = 0; i < rows_; ++i)
-            {
-                delete[] elements_[i];
-            }
-            delete[] elements_;
-        }
-        rows_ = other.rows_;
-        collumns_ = other.collumns_;
-        elements_ = new float*[rows_];
-        for (size_t i = 0; i < rows_; ++i)
-        {
-            elements_[i] = new float[collumns_];
-            for (size_t j = 0; j < collumns_; ++j)
-            {
-                this->elements_[i][j] = other.elements_[i][j];
-            }
-        }
-    }
-    return *this;
-}
+	if (this != &other) {
+		for (std::size_t i = 0; i < rows_; ++i) {
+			delete[] elements_[i];
+		}
+		delete[] elements_;
 
+		rows_ = other.rows_;
+		collumns_ = other.collumns_;
+		elements_ = new float *[rows_];
+		for (std::size_t i = 0; i < rows_; ++i) {
+			elements_[i] = new float[collumns_];
+		}
+		for (std::size_t i = 0; i < rows_; ++i) {
+			for (std::size_t j = 0; j < collumns_; ++j) {
+				elements_[i][j] = other.elements_[i][j];
+			}
+		}
+
+	}
+	return *this;
+}
 
 matrix_t::~matrix_t()
 {
-    for (size_t i = 0; i < this->rows_; i++)
+    for (std::size_t i = 0; i < this->rows_; i++)
     {
         delete[] this->elements_[i];
     }
@@ -147,7 +143,7 @@ matrix_t matrix_t::operator*(matrix_t const& other) const
         {
             for (std::size_t j = 0; j < other.collumns_; ++j)
             {
-                size_t result_ = 0;
+                std::size_t result_ = 0;
                 for (std::size_t k = 0; k < other.rows_; ++k)
                 {
                     result_ += elements_[i][k] * other.elements_[k][j];
@@ -221,7 +217,7 @@ matrix_t& matrix_t::operator*=(matrix_t const& other)
         {
             for (std::size_t j = 0; j < other.collumns_; ++j)
             {
-                size_t result_ = 0;
+                std::size_t result_ = 0;
                 for (std::size_t k = 0; k < other.rows_; ++k)
                 {
                     result_ += elements_[i][k] * other.elements_[k][j];
