@@ -200,7 +200,7 @@ matrix_t & matrix_t::operator *=( matrix_t const & other )
 	return *this;
 }
 
-char * success (matrix_t const & one, matrix_t const & two, char) {
+char * success (matrix_t const & one, matrix_t const & two, char op) {
 	matrix_t result;
 	char * str = "Good";
 	
