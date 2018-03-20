@@ -79,7 +79,7 @@ matrix_t<T> matrix_t<T>::operator +( matrix_t const & other ) const
 		}
 	}
 	else {
-		throw "You can`t make this action";
+		throw false;
 	}
 
 	return result;
@@ -105,7 +105,7 @@ matrix_t<T> matrix_t<T>::operator -( matrix_t const & other ) const
 		}
 	}
 	else {
-		throw "You can`t make this action";
+		throw false;
 	}
 
 	return result;
@@ -135,7 +135,7 @@ matrix_t<T> matrix_t<T>::operator *( matrix_t const & other ) const
 		}
 	}
 	else {
-		throw "You can`t make this action";
+		throw false;
 	}
 
 	return result;
@@ -152,7 +152,7 @@ matrix_t<T> & matrix_t<T>::operator -=( matrix_t const & other )
 		}
 	}
 	else {
-		throw "You can`t make this action";
+		throw false;
 	}
 	
 	return *this;
@@ -169,7 +169,7 @@ matrix_t<T> & matrix_t<T>::operator +=( matrix_t const & other )
 		}
 	}
 	else {
-		throw "You can`t make this action";
+		throw false;
 	}
 	
 	return *this;
@@ -200,23 +200,23 @@ matrix_t<T> & matrix_t<T>::operator *=( matrix_t const & other )
 		*this = result;
 	}
 	else {
-		throw "You can`t make this action";
+		throw false;
 	}
 	
 	return *this;
 }
 
 template <typename T>
-char * matrix_t<T>::success (matrix_t<T> const & one, char op) {
+bool matrix_t<T>::success (matrix_t<T> const & one, char op) {
 	matrix_t<T> result;
-	char * str = "Good";
+	bool str = true;
 	
 	switch (op) {
 		case '+': {
 			try {
 				result = *this + one;
 			}
-			catch (char * s) {
+			catch (bool s) {
 				str = s;
 			}
 			break;
@@ -226,7 +226,7 @@ char * matrix_t<T>::success (matrix_t<T> const & one, char op) {
 			try {
 				result = *this -one;
 			}
-			catch (char * s) {
+			catch (bool s) {
 				str = s;
 			}
 			break;
@@ -236,7 +236,7 @@ char * matrix_t<T>::success (matrix_t<T> const & one, char op) {
 			try {
 				result = (*this) * one;
 			}
-			catch (char * s) {
+			catch (bool s) {
 				str = s;
 			}
 			break;
