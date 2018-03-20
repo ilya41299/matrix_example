@@ -42,7 +42,8 @@ matrix_t<T> matrix( std::string const & representation )
     return result;
 }
 
-std::string representation( matrix_t const & matrix )
+template <typename T>
+std::string representation( matrix_t<T> const & matrix )
 {
     std::ostringstream ostream;
     matrix.write( ostream );
@@ -54,11 +55,11 @@ TEST_CASE("addings matrixs")
 {
     std::string first_matrix_representation{
         "1, 3\n"
-        "1,1 1,1 1,1\n"
+        "1.1 1.1 1.1\n"
     };
     std::string second_matrix_representation{
         "1, 3\n"
-        "1,1 1,1 1,1\n"
+        "1.1 1.1 1.1\n"
     };
     matrix_t<float> first_matrix = matrix( first_matrix_representation );
     matrix_t<float> second_matrix = matrix( second_matrix_representation );
@@ -67,7 +68,7 @@ TEST_CASE("addings matrixs")
 
     std::string expected_result_matrix_representation{
         "1, 3\n"
-        "2,2 2,2 2,2\n"
+        "2.2 2.2 2.2\n"
     };
     
     REQUIRE( representation( result_matrix ) == expected_result_matrix_representation );
@@ -77,7 +78,7 @@ TEST_CASE("subtracting matrixs")
 {
     std::string first_matrix_representation{
         "1, 3\n"
-        "1,5 1,5 1,5\n"
+        "1.5 1.5 1.5\n"
     };
     std::string second_matrix_representation{
         "1, 3\n"
@@ -90,7 +91,7 @@ TEST_CASE("subtracting matrixs")
 
     std::string expected_result_matrix_representation{
         "1, 3\n"
-        "0,5 0,5 0,5\n"
+        "0.5 0.5 0.5\n"
     };
     
     REQUIRE( representation( result_matrix ) == expected_result_matrix_representation );
