@@ -6,7 +6,7 @@
 
 TEST_CASE("creating matrix")
 {
-    matrix_t matrix;
+    matrix_t<int> matrix;
     REQUIRE( matrix.rows() == 0 );
     REQUIRE( matrix.collumns() == 0 );
 }
@@ -18,7 +18,7 @@ TEST_CASE("reading matrix")
         "1 1 1\n"
         "2 2 2\n"
         "3 3 3" };
-    matrix_t matrix;
+    matrix_t<int> matrix;
     std::istringstream istream{ input };
     
     REQUIRE( matrix.read( istream ) );
@@ -33,7 +33,7 @@ TEST_CASE("reading matrix")
 
 matrix_t matrix( std::string const & representation )
 {
-    matrix_t result;
+    matrix_t<int> result;
     
     std::istringstream istream{ representation };
     assert( result.read( istream ) );
@@ -59,10 +59,10 @@ TEST_CASE("addings matrixs")
         "1, 3\n"
         "1,1 1,1 1,1\n"
     };
-    matrix_t first_matrix = matrix( first_matrix_representation );
-    matrix_t second_matrix = matrix( second_matrix_representation );
+    matrix_t<float> first_matrix = matrix( first_matrix_representation );
+    matrix_t<float> second_matrix = matrix( second_matrix_representation );
     
-    matrix_t result_matrix = first_matrix + second_matrix;
+    matrix_t<float> result_matrix = first_matrix + second_matrix;
 
     std::string expected_result_matrix_representation{
         "1, 3\n"
@@ -82,10 +82,10 @@ TEST_CASE("subtracting matrixs")
         "1, 3\n"
         "1 1 1\n"
     };
-    matrix_t first_matrix = matrix( first_matrix_representation );
-    matrix_t second_matrix = matrix( second_matrix_representation );
+    matrix_t<float> first_matrix = matrix( first_matrix_representation );
+    matrix_t<float> second_matrix = matrix( second_matrix_representation );
     
-    matrix_t result_matrix = first_matrix - second_matrix;
+    matrix_t<float> result_matrix = first_matrix - second_matrix;
 
     std::string expected_result_matrix_representation{
         "1, 3\n"
@@ -107,10 +107,10 @@ TEST_CASE("multiplying matrixs")
         "1\n"
         "1\n"
     };
-    matrix_t first_matrix = matrix( first_matrix_representation );
-    matrix_t second_matrix = matrix( second_matrix_representation );
+    matrix_t<int> first_matrix = matrix( first_matrix_representation );
+    matrix_t<int> second_matrix = matrix( second_matrix_representation );
     
-    matrix_t result_matrix = first_matrix * second_matrix;
+    matrix_t<int> result_matrix = first_matrix * second_matrix;
 
     std::string expected_result_matrix_representation{
         "1, 1\n"
@@ -130,8 +130,8 @@ TEST_CASE("addings_2 matrixs")
         "1, 3\n"
         "1 1 1\n"
     };
-    matrix_t first_matrix = matrix( first_matrix_representation );
-    matrix_t second_matrix = matrix( second_matrix_representation );
+    matrix_t<int> first_matrix = matrix( first_matrix_representation );
+    matrix_t<int> second_matrix = matrix( second_matrix_representation );
     
     first_matrix += second_matrix;
 
@@ -153,8 +153,8 @@ TEST_CASE("subtracting_2 matrixs")
         "1, 3\n"
         "1 1 1\n"
     };
-    matrix_t first_matrix = matrix( first_matrix_representation );
-    matrix_t second_matrix = matrix( second_matrix_representation );
+    matrix_t<int> first_matrix = matrix( first_matrix_representation );
+    matrix_t<int> second_matrix = matrix( second_matrix_representation );
     
     first_matrix -= second_matrix;
 
@@ -178,8 +178,8 @@ TEST_CASE("multiplying_2 matrixs")
         "1\n"
         "1\n"
     };
-    matrix_t first_matrix = matrix( first_matrix_representation );
-    matrix_t second_matrix = matrix( second_matrix_representation );
+    matrix_t<int> first_matrix = matrix( first_matrix_representation );
+    matrix_t<int> second_matrix = matrix( second_matrix_representation );
     
     first_matrix *= second_matrix;
 
@@ -205,10 +205,10 @@ TEST_CASE("addings matrixs 3x1")
         "1\n"
         "1\n"
     };
-    matrix_t first_matrix = matrix( first_matrix_representation );
-    matrix_t second_matrix = matrix( second_matrix_representation );
+    matrix_t<int> first_matrix = matrix( first_matrix_representation );
+    matrix_t<int> second_matrix = matrix( second_matrix_representation );
     
-    matrix_t result_matrix = first_matrix + second_matrix;
+    matrix_t<int> result_matrix = first_matrix + second_matrix;
 
     std::string expected_result_matrix_representation{
         "3, 1\n"
@@ -234,8 +234,8 @@ TEST_CASE("Good")
         "1\n"
         "1\n"
     };
-    matrix_t first_matrix = matrix( first_matrix_representation );
-    matrix_t second_matrix = matrix( second_matrix_representation );
+    matrix_t<int> first_matrix = matrix( first_matrix_representation );
+    matrix_t<int> second_matrix = matrix( second_matrix_representation );
     
     char op = '+';
     char * str_ = first_matrix.succsess (second_matrix, op);
@@ -257,8 +257,8 @@ TEST_CASE("You can`t make this action")
         "1\n"
         "1\n"
     };
-    matrix_t first_matrix = matrix( first_matrix_representation );
-    matrix_t second_matrix = matrix( second_matrix_representation );
+    matrix_t<int> first_matrix = matrix( first_matrix_representation );
+    matrix_t<int> second_matrix = matrix( second_matrix_representation );
     
     char op = '-';
     char * str_ = first_matrix.succsess (second_matrix, op);
