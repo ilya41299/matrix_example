@@ -23,7 +23,7 @@ public:
 	matrix_t & operator +=( matrix_t const & other );
 	matrix_t & operator *=( matrix_t const & other );
 	
-	char * success (matrix_t const & one, char op);
+	bool success (matrix_t const & one, char op);
 
 	std::istream & read( std::istream & stream );
 	std::ostream & write( std::ostream  & stream ) const;
