@@ -1,12 +1,12 @@
 #include "matrix.hpp"
 
 template <typename T>
-matrix_t::matrix_t() : elements_{ nullptr }, rows_{ 0 }, collumns_{ 0 }
+matrix_t::matrix_t<T>() : elements_{ nullptr }, rows_{ 0 }, collumns_{ 0 }
 {
 }
 
 template <typename T>
-matrix_t::matrix_t( matrix_t const & other )
+matrix_t::matrix_t<T>( matrix_t const & other )
 {
 	 rows_ = other.rows_;
 	collumns_ = other.collumns_;
@@ -20,7 +20,7 @@ matrix_t::matrix_t( matrix_t const & other )
 }
 
 template <typename T>
-matrix_t & matrix_t::operator =( matrix_t const & other )
+matrix_t & matrix_t<T>::operator =( matrix_t const & other )
 {
 	for (std::size_t i = 0; i < rows_; ++i) {
 		delete[] elements_[i];
@@ -38,7 +38,8 @@ matrix_t & matrix_t::operator =( matrix_t const & other )
 	return *this;
 }
 
-matrix_t::~matrix_t()
+template <typename T>
+matrix_t::~matrix_t<T>()
 {
 	for (std::size_t i = 0; i < rows_; i++) {
 		delete [] elements_[i];
@@ -46,18 +47,20 @@ matrix_t::~matrix_t()
 	delete []elements_;
 }
 
-std::size_t matrix_t::rows() const
+template <typename T>
+std::size_t matrix_t<T>::rows() const
 {
     return rows_;
 }
 
-std::size_t matrix_t::collumns() const
+template <typename T>
+std::size_t matrix_t<T>::collumns() const
 {
     return collumns_;
 }
 
 template <typename T>
-matrix_t matrix_t::operator +( matrix_t const & other ) const
+matrix_t matrix_t<T>::operator +( matrix_t const & other ) const
 {
 	matrix_t result;
 	
@@ -83,7 +86,7 @@ matrix_t matrix_t::operator +( matrix_t const & other ) const
 }
 
 template <typename T>
-matrix_t matrix_t::operator -( matrix_t const & other ) const
+matrix_t matrix_t<T>::operator -( matrix_t const & other ) const
 {
 	matrix_t result;
 	
@@ -109,7 +112,7 @@ matrix_t matrix_t::operator -( matrix_t const & other ) const
 }
 
 template <typename T>
-matrix_t matrix_t::operator *( matrix_t const & other ) const
+matrix_t matrix_t<T>::operator *( matrix_t const & other ) const
 {
 	matrix_t result;
 	
@@ -138,7 +141,8 @@ matrix_t matrix_t::operator *( matrix_t const & other ) const
 	return result;
 }
 
-matrix_t & matrix_t::operator -=( matrix_t const & other )
+template <typename T>
+matrix_t & matrix_t<T>::operator -=( matrix_t const & other )
 {
 	if (rows_ == other.rows_ && collumns_ == other.collumns_) {
 		for (std::size_t i = 0; i<rows_; i++) {
@@ -154,7 +158,8 @@ matrix_t & matrix_t::operator -=( matrix_t const & other )
 	return *this;
 }
 
-matrix_t & matrix_t::operator +=( matrix_t const & other )
+template <typename T>
+matrix_t & matrix_t<T>::operator +=( matrix_t const & other )
 {
 	if (rows_ == other.rows_ && collumns_ == other.collumns_) {
 		for (std::size_t i = 0; i<rows_; i++) {
@@ -171,7 +176,7 @@ matrix_t & matrix_t::operator +=( matrix_t const & other )
 }
 
 template <typename T>
-matrix_t & matrix_t::operator *=( matrix_t const & other )
+matrix_t & matrix_t<T>::operator *=( matrix_t const & other )
 {
 	matrix_t result;
 	
@@ -201,8 +206,9 @@ matrix_t & matrix_t::operator *=( matrix_t const & other )
 	return *this;
 }
 
-char * success (matrix_t const & one, matrix_t const & two, char op) {
-	matrix_t result;
+template <typename T>
+char * matrix_t<T>::success (matrix_t<T> const & one, matrix_t<T> const & two, char op) {
+	matrix_t<T> result;
 	char * str = "Good";
 	
 	switch (op) {
@@ -241,7 +247,7 @@ char * success (matrix_t const & one, matrix_t const & two, char op) {
 }
 
 template <typename T>
-std::istream & matrix_t::read( std::istream & stream )
+std::istream & matrix_t<T>::read( std::istream & stream )
 {
     std::size_t rows;
     std::size_t collumns;
@@ -288,7 +294,8 @@ std::istream & matrix_t::read( std::istream & stream )
 	return stream;
 }
 
-std::ostream & matrix_t::write( std::ostream & stream ) const
+template <typename T>
+std::ostream & matrix_t<T>::write( std::ostream & stream ) const
 {
     stream << rows_ << ", " << collumns_;
     for( std::size_t i = 0; i < rows_; ++i ) {
