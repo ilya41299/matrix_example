@@ -1,7 +1,7 @@
 #include "matrix.hpp"
 
 template <typename T>
-matrix_t::matrix_t<T>() : elements_{ nullptr }, rows_{ 0 }, collumns_{ 0 }
+matrix_t<T>::matrix_t() : elements_{ nullptr }, rows_{ 0 }, collumns_{ 0 }
 {
 }
 
