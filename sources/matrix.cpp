@@ -207,14 +207,14 @@ matrix_t & matrix_t<T>::operator *=( matrix_t const & other )
 }
 
 template <typename T>
-char * matrix_t<T>::success (matrix_t<T> const & one, matrix_t<T> const & two, char op) {
+char * matrix_t<T>::success (matrix_t<T> const & one, char op) {
 	matrix_t<T> result;
 	char * str = "Good";
 	
 	switch (op) {
 		case '+': {
 			try {
-				result = one + two;
+				result = *this + one;
 			}
 			catch (char * s) {
 				str = s;
@@ -224,7 +224,7 @@ char * matrix_t<T>::success (matrix_t<T> const & one, matrix_t<T> const & two, c
 			
 		case '-': {
 			try {
-				result = one - two;
+				result = *this -one;
 			}
 			catch (char * s) {
 				str = s;
@@ -234,7 +234,7 @@ char * matrix_t<T>::success (matrix_t<T> const & one, matrix_t<T> const & two, c
 			
 		case '*': {
 			try {
-				result = one * two;
+				result = (*this) * one;
 			}
 			catch (char * s) {
 				str = s;
