@@ -238,8 +238,8 @@ TEST_CASE("Good")
     matrix_t<int> second_matrix = matrix( second_matrix_representation );
     
     char op = '+';
-    char * str_ = first_matrix.succsess (second_matrix, op);
-    char * expect = "Good";
+    bool str_ = first_matrix.succsess (second_matrix, op);
+    bool expect = true;
     
     REQUIRE( str_ == expect );
 }
@@ -261,8 +261,8 @@ TEST_CASE("You can`t make this action")
     matrix_t<int> second_matrix = matrix( second_matrix_representation );
     
     char op = '-';
-    char * str_ = first_matrix.succsess (second_matrix, op);
-    char * expect = "You can`t make this action";
+    bool str_ = first_matrix.succsess (second_matrix, op);
+    bool expect = false;
     
     REQUIRE( str_ == expect );
 }
