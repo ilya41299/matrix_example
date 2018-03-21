@@ -6,7 +6,7 @@ matrix_t<T>::matrix_t() : elements_{ nullptr }, rows_{ 0 }, collumns_{ 0 }
 }
 
 template <typename T>
-matrix_t<T>::matrix_t( matrix_t const & other )
+matrix_t<T>::matrix_t( matrix_t<T> const & other )
 {
 	rows_ = other.rows_;
 	collumns_ = other.collumns_;
@@ -20,7 +20,7 @@ matrix_t<T>::matrix_t( matrix_t const & other )
 }
 
 template <typename T>
-matrix_t<T> & matrix_t<T>::operator =( matrix_t const & other )
+matrix_t<T> & matrix_t<T>::operator =( matrix_t<T> const & other )
 {
 	for (std::size_t i = 0; i < rows_; ++i) {
 		delete[] elements_[i];
@@ -60,7 +60,7 @@ std::size_t matrix_t<T>::collumns() const
 }
 
 template <typename T>
-matrix_t<T> matrix_t<T>::operator +( matrix_t const & other ) const
+matrix_t<T> matrix_t<T>::operator +( matrix_t<T> const & other ) const
 {
 	matrix_t<T> result;
 	
@@ -86,7 +86,7 @@ matrix_t<T> matrix_t<T>::operator +( matrix_t const & other ) const
 }
 
 template <typename T>
-matrix_t<T> matrix_t<T>::operator -( matrix_t const & other ) const
+matrix_t<T> matrix_t<T>::operator -( matrix_t<T> const & other ) const
 {
 	matrix_t<T> result;
 	
@@ -112,7 +112,7 @@ matrix_t<T> matrix_t<T>::operator -( matrix_t const & other ) const
 }
 
 template <typename T>
-matrix_t<T> matrix_t<T>::operator *( matrix_t const & other ) const
+matrix_t<T> matrix_t<T>::operator *( matrix_t<T> const & other ) const
 {
 	matrix_t<T> result;
 	
@@ -142,7 +142,7 @@ matrix_t<T> matrix_t<T>::operator *( matrix_t const & other ) const
 }
 
 template <typename T>
-matrix_t<T> & matrix_t<T>::operator -=( matrix_t const & other )
+matrix_t<T> & matrix_t<T>::operator -=( matrix_t<T> const & other )
 {
 	if (rows_ == other.rows_ && collumns_ == other.collumns_) {
 		for (std::size_t i = 0; i<rows_; i++) {
@@ -159,7 +159,7 @@ matrix_t<T> & matrix_t<T>::operator -=( matrix_t const & other )
 }
 
 template <typename T>
-matrix_t<T> & matrix_t<T>::operator +=( matrix_t const & other )
+matrix_t<T> & matrix_t<T>::operator +=( matrix_t<T> const & other )
 {
 	if (rows_ == other.rows_ && collumns_ == other.collumns_) {
 		for (std::size_t i = 0; i<rows_; i++) {
@@ -176,7 +176,7 @@ matrix_t<T> & matrix_t<T>::operator +=( matrix_t const & other )
 }
 
 template <typename T>
-matrix_t<T> & matrix_t<T>::operator *=( matrix_t const & other )
+matrix_t<T> & matrix_t<T>::operator *=( matrix_t<T> const & other )
 {
 	matrix_t<T> result;
 	
