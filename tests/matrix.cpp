@@ -4,7 +4,7 @@
 
 TEST_CASE("creating matrix")
 {
-	matrix_t matrix;
+	matrix_t<T> matrix;
 	REQUIRE(matrix.rows() == 0);
 	REQUIRE(matrix.collumns() == 0);
 }
@@ -16,7 +16,7 @@ TEST_CASE("reading matrix")
 		"1 1 1\n"
 		"2 2 2\n"
 		"3 3 3" };
-	matrix_t matrix;
+	matrix_t<T> matrix;
 	std::istringstream istream{ input };
 
 	REQUIRE(matrix.read(istream));
@@ -34,17 +34,17 @@ TEST_CASE("add matrix")
 	std::string stroka1{
 		"2, 3\n"
 		"1 1 1\n"
-		"1 1 1"};
+		"1 1 1" };
 	std::string stroka2{
 		"2, 3\n"
 		"2 2 2\n"
-		"2 2 2"};
+		"2 2 2" };
 	std::string res_stroka{
 		"2, 3\n"
 		"3 3 3\n"
-		"3 3 3"};
+		"3 3 3" };
 
-	matrix_t matrix1, matrix2, result_matrix;
+	matrix_t<T> matrix1, matrix2, result_matrix;
 	std::istringstream istream1{ stroka1 };
 	std::istringstream istream2{ stroka2 };
 
@@ -74,7 +74,7 @@ TEST_CASE("sub matrix")
 		"0 1 2\n"
 		"3 4 5" };
 
-	matrix_t matrix1, matrix2, result_matrix;
+	matrix_t<T> matrix1, matrix2, result_matrix;
 	std::istringstream istream1{ stroka1 };
 	std::istringstream istream2{ stroka2 };
 
@@ -107,7 +107,7 @@ TEST_CASE("mul matrix")
 		"6 6 6\n"
 		"6 6 6" };
 
-	matrix_t matrix1, matrix2, result_matrix;
+	matrix_t<T> matrix1, matrix2, result_matrix;
 	std::istringstream istream1{ stroka1 };
 	std::istringstream istream2{ stroka2 };
 
@@ -140,7 +140,7 @@ TEST_CASE("sub= matrix")
 		"2 2 2 2\n"
 		"2 2 2 2" };
 
-	matrix_t matrix1, matrix2;
+	matrix_t<T> matrix1, matrix2;
 	std::istringstream istream1{ stroka1 };
 	std::istringstream istream2{ stroka2 };
 
@@ -160,18 +160,18 @@ TEST_CASE("add= matrix")
 	std::string stroka1{
 		"2, 3\n"
 		"3 3 3\n"
-		"3 3 3"};
+		"3 3 3" };
 
 	std::string stroka2{
 		"2, 3\n"
 		"1 1 1\n"
-		"1 1 1"};
+		"1 1 1" };
 	std::string res_stroka{
 		"2, 3\n"
 		"4 4 4\n"
-		"4 4 4"};
+		"4 4 4" };
 
-	matrix_t matrix1, matrix2;
+	matrix_t<T> matrix1, matrix2;
 	std::istringstream istream1{ stroka1 };
 	std::istringstream istream2{ stroka2 };
 
@@ -204,7 +204,7 @@ TEST_CASE("mul= matrix")
 		"6 6 6\n"
 		"6 6 6" };
 
-	matrix_t matrix1, matrix2;
+	matrix_t<T> matrix1, matrix2;
 	std::istringstream istream1{ stroka1 };
 	std::istringstream istream2{ stroka2 };
 
