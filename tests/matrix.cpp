@@ -31,26 +31,6 @@ TEST_CASE("reading matrix")
     REQUIRE( input == ostream.str() );
 }
 
-template <typename T>
-matrix_t<T> matrix( std::string const & representation )
-{
-    matrix_t<T> result;
-    
-    std::istringstream istream{ representation };
-    assert( result.read( istream ) );
-    
-    return result;
-}
-
-template <typename T>
-std::string representation( matrix_t<T> const & matrix )
-{
-    std::ostringstream ostream;
-    matrix.write( ostream );
-    
-    return ostream.str();
-}
-
 TEST_CASE("addings matrixs")
 {
     std::string first_matrix_representation{
