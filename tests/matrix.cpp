@@ -4,6 +4,26 @@
 
 #include "matrix.hpp"
 
+template <typename T>
+matrix_t<T> matrix( std::string const & representation )
+{
+    matrix_t<T> result;
+    
+    std::istringstream istream{ representation };
+    assert( result.read( istream ) );
+    
+    return result;
+}
+
+template <typename T>
+std::string representation( matrix_t<T> const & matrix )
+{
+    std::ostringstream ostream;
+    matrix.write( ostream );
+    
+    return ostream.str();
+}
+
 TEST_CASE("creating matrix")
 {
     matrix_t<int> matrix;
