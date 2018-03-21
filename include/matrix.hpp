@@ -18,7 +18,7 @@ public:
 
 	matrix_t<T> operator +(matrix_t<T> const & other) const;
 	matrix_t<T> operator -(matrix_t<T> const & other) const;
-	matrix_t operator *(matrix_t const & other) const;
+	matrix_t<T> operator *(matrix_t<T> const & other) const;
 
 	matrix_t<T> & operator -=(matrix_t<T> const & other);
 	matrix_t<T> & operator +=(matrix_t<T> const & other);
