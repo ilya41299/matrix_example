@@ -4,7 +4,7 @@
 
 TEST_CASE("creating matrix")
 {
-	matrix_t<T> matrix;
+	matrix_t<int> matrix;
 	REQUIRE(matrix.rows() == 0);
 	REQUIRE(matrix.collumns() == 0);
 }
@@ -16,7 +16,7 @@ TEST_CASE("reading matrix")
 		"1 1 1\n"
 		"2 2 2\n"
 		"3 3 3" };
-	matrix_t<T> matrix;
+	matrix_t<int> matrix;
 	std::istringstream istream{ input };
 
 	REQUIRE(matrix.read(istream));
@@ -44,7 +44,7 @@ TEST_CASE("add matrix")
 		"3 3 3\n"
 		"3 3 3" };
 
-	matrix_t<T> matrix1, matrix2, result_matrix;
+	matrix_t<float> matrix1, matrix2, result_matrix;
 	std::istringstream istream1{ stroka1 };
 	std::istringstream istream2{ stroka2 };
 
@@ -74,7 +74,7 @@ TEST_CASE("sub matrix")
 		"0 1 2\n"
 		"3 4 5" };
 
-	matrix_t<T> matrix1, matrix2, result_matrix;
+	matrix_t<float> matrix1, matrix2, result_matrix;
 	std::istringstream istream1{ stroka1 };
 	std::istringstream istream2{ stroka2 };
 
@@ -107,7 +107,7 @@ TEST_CASE("mul matrix")
 		"6 6 6\n"
 		"6 6 6" };
 
-	matrix_t<T> matrix1, matrix2, result_matrix;
+	matrix_t<float> matrix1, matrix2, result_matrix;
 	std::istringstream istream1{ stroka1 };
 	std::istringstream istream2{ stroka2 };
 
@@ -140,7 +140,7 @@ TEST_CASE("sub= matrix")
 		"2 2 2 2\n"
 		"2 2 2 2" };
 
-	matrix_t<T> matrix1, matrix2;
+	matrix_t<float> matrix1, matrix2;
 	std::istringstream istream1{ stroka1 };
 	std::istringstream istream2{ stroka2 };
 
@@ -171,7 +171,7 @@ TEST_CASE("add= matrix")
 		"4 4 4\n"
 		"4 4 4" };
 
-	matrix_t<T> matrix1, matrix2;
+	matrix_t<float> matrix1, matrix2;
 	std::istringstream istream1{ stroka1 };
 	std::istringstream istream2{ stroka2 };
 
@@ -204,7 +204,7 @@ TEST_CASE("mul= matrix")
 		"6 6 6\n"
 		"6 6 6" };
 
-	matrix_t<T> matrix1, matrix2;
+	matrix_t<float> matrix1, matrix2;
 	std::istringstream istream1{ stroka1 };
 	std::istringstream istream2{ stroka2 };
 
