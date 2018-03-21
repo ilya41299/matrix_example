@@ -75,7 +75,7 @@ std::size_t matrix_t<T>::collumns() const
 }
 
 template <typename T>
-matrix_t matrix_t<T>::operator+(matrix_t<T> const& other) const
+matrix_t<T> matrix_t<T>::operator+(matrix_t<T> const& other) const
 {
 	matrix_t<T> result;
 
@@ -193,7 +193,7 @@ matrix_t<T>& matrix_t<T>::operator-=(matrix_t<T> const& other)
 }
 
 template <typename T>
-matrix_t& matrix_t<T>::operator+=(matrix_t<T>const& other)
+matrix_t<T>& matrix_t<T>::operator+=(matrix_t<T>const& other)
 {
 	if (rows_ == other.rows_ && collumns_ == other.collumns_)
 	{
