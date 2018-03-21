@@ -43,10 +43,12 @@ TEST_CASE("addings matrixs")
     };
     
     std::istringstream istream{ first_matrix_representation };
-    matrix_t<float> first_matrix.read( istream );
+    matrix_t<float> first_matrix; 
+    first_matrix.read( istream );
     
     std::istringstream istream{ second_matrix_representation };
-    matrix_t<float> second_matrix.read( istream );
+    matrix_t<float> second_matrix;
+    second_matrix.read( istream );
     
     matrix_t<float> result_matrix = first_matrix + second_matrix;
 
@@ -73,10 +75,12 @@ TEST_CASE("subtracting matrixs")
     };
     
     std::istringstream istream{ first_matrix_representation };
-    matrix_t<float> first_matrix.read( istream );
+    matrix_t<float> first_matrix;
+    first_matrix.read( istream );
     
     std::istringstream istream{ second_matrix_representation };
-    matrix_t<float> second_matrix.read( istream );
+    matrix_t<float> second_matrix;
+    second_matrix.read( istream );
     
     matrix_t<float> result_matrix = first_matrix - second_matrix;
 
@@ -105,10 +109,12 @@ TEST_CASE("multiplying matrixs")
     };
     
     std::istringstream istream{ first_matrix_representation };
-    matrix_t<int> first_matrix.read( istream );
+    matrix_t<int> first_matrix;
+    first_matrix.read( istream );
     
     std::istringstream istream{ second_matrix_representation };
-    matrix_t<int> second_matrix.read( istream );
+    matrix_t<int> second_matrix;
+    second_matrix.read( istream );
     
     matrix_t<int> result_matrix = first_matrix * second_matrix;
 
@@ -135,10 +141,12 @@ TEST_CASE("addings_2 matrixs")
     };
     
     std::istringstream istream{ first_matrix_representation };
-    matrix_t<int> first_matrix.read( istream );
+    matrix_t<int> first_matrix;
+    first_matrix.read( istream );
     
     std::istringstream istream{ second_matrix_representation };
-    matrix_t<int> second_matrix.read( istream );
+    matrix_t<int> second_matrix;
+    second_matrix.read( istream );
     
     first_matrix += second_matrix;
 
@@ -148,7 +156,7 @@ TEST_CASE("addings_2 matrixs")
     };
     
     std::ostringstream ostream;
-    result_matrix.write (ostream);
+    first_matrix.write (ostream);
     
     REQUIRE( ostream.str() == expected_result_matrix_representation );
 }
@@ -165,10 +173,12 @@ TEST_CASE("subtracting_2 matrixs")
     };
     
     std::istringstream istream{ first_matrix_representation };
-    matrix_t<int> first_matrix.read( istream );
+    matrix_t<int> first_matrix;
+    first_matrix.read( istream );
     
     std::istringstream istream{ second_matrix_representation };
-    matrix_t<int> second_matrix.read( istream );
+    matrix_t<int> second_matrix;
+    second_matrix.read( istream );
     
     first_matrix -= second_matrix;
 
@@ -178,7 +188,7 @@ TEST_CASE("subtracting_2 matrixs")
     };
     
     std::ostringstream ostream;
-    result_matrix.write (ostream);
+    first_matrix.write (ostream);
     
     REQUIRE( ostream.str() == expected_result_matrix_representation );
 }
@@ -197,10 +207,12 @@ TEST_CASE("multiplying_2 matrixs")
     };
     
     std::istringstream istream{ first_matrix_representation };
-    matrix_t<int> first_matrix.read( istream );
+    matrix_t<int> first_matrix;
+    first_matrix.read( istream );
     
     std::istringstream istream{ second_matrix_representation };
-    matrix_t<int> second_matrix.read( istream );
+    matrix_t<int> second_matrix;
+    second_matrix.read( istream );
     
     first_matrix *= second_matrix;
 
@@ -210,7 +222,7 @@ TEST_CASE("multiplying_2 matrixs")
     };
     
     std::ostringstream ostream;
-    result_matrix.write (ostream);
+    first_matrix.write (ostream);
     
     REQUIRE( ostream.str() == expected_result_matrix_representation );
 }
@@ -231,10 +243,12 @@ TEST_CASE("addings matrixs 3x1")
     };
     
     std::istringstream istream{ first_matrix_representation };
-    matrix_t<int> first_matrix.read( istream );
+    matrix_t<int> first_matrix;
+    first_matrix.read( istream );
     
     std::istringstream istream{ second_matrix_representation };
-    matrix_t<int> second_matrix.read( istream );
+    matrix_t<int> second_matrix;
+    second_matrix.read( istream );
     
     matrix_t<int> result_matrix = first_matrix + second_matrix;
 
@@ -267,10 +281,12 @@ TEST_CASE("Good")
     };
     
     std::istringstream istream{ first_matrix_representation };
-    matrix_t<int> first_matrix.read( istream );
+    matrix_t<int> first_matrix;
+    first_matrix.read( istream );
     
     std::istringstream istream{ second_matrix_representation };
-    matrix_t<int> second_matrix.read( istream );
+    matrix_t<int> second_matrix;
+    second_matrix.read( istream );
     
     char op = '+';
     bool str_ = first_matrix.succsess (second_matrix, op);
@@ -294,10 +310,12 @@ TEST_CASE("You can`t make this action")
     };
     
     std::istringstream istream{ first_matrix_representation };
-    matrix_t<int> first_matrix.read( istream );
+    matrix_t<int> first_matrix;
+    first_matrix.read( istream );
     
     std::istringstream istream{ second_matrix_representation };
-    matrix_t<int> second_matrix.read( istream );
+    matrix_t<int> second_matrix;
+    second_matrix.read( istream );
     
     char op = '-';
     bool str_ = first_matrix.succsess (second_matrix, op);
