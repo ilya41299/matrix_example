@@ -56,7 +56,7 @@ TEST_CASE("addings matrixs")
     };
     
     std::ostringstream ostream;
-    result_matrix.write (cout);
+    result_matrix.write (ostream);
     
     REQUIRE( ostream.str() == expected_result_matrix_representation );
 }
