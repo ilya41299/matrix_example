@@ -71,8 +71,8 @@ TEST_CASE("error add matrix")
 		"2 2 2\n"
 		"2 2 2" };
 	matrix_t<float> matrix1, matrix2, result_matrix;
-	std::istringstream istream1{ input1 };
-	std::istringstream istream2{ input2 };
+	std::istringstream istream1{ stroka1 };
+	std::istringstream istream2{ stroka2 };
 
 	matrix1.read(istream1);
 	matrix2.read(istream2);
