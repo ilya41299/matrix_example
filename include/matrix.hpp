@@ -4,7 +4,7 @@ template <typename T>
 
 class matrix_t {
 private:
-	T ** elements_;
+	T * * elements_;
 	std::size_t rows_;
 	std::size_t collumns_;
 public:
@@ -42,7 +42,7 @@ matrix_t<T>::matrix_t(matrix_t<T> const& other)
 	elements_ = new T*[rows_];
 	for (std::size_t i = 0; i < rows_; ++i)
 	{
-		elements_[i] = new T [this->collumns_];
+		elements_[i] = new T[this->collumns_];
 		for (std::size_t j = 0; j < collumns_; ++j)
 		{
 			elements_[i][j] = other.elements_[i][j];
@@ -127,7 +127,7 @@ matrix_t<T> matrix_t<T>::operator+(matrix_t<T> const& other) const
 	}
 	else
 	{
-		std::cout << "An error has occured while reading input data\n";
+		throw std::invalid_argument("Error");
 	}
 
 	return result;
@@ -158,7 +158,7 @@ matrix_t<T> matrix_t<T>::operator-(matrix_t<T> const& other) const
 	}
 	else
 	{
-		std::cout << "An error has occured while reading input data\n";
+		throw std::invalid_argument("Error");
 	}
 
 	return result;
@@ -194,7 +194,7 @@ matrix_t<T> matrix_t<T>::operator*(matrix_t<T> const& other) const
 	}
 	else
 	{
-		std::cout << "An error has occured while reading input data\n";
+		throw std::invalid_argument("Error");
 	}
 	return result;
 }
@@ -214,7 +214,7 @@ matrix_t<T>& matrix_t<T>::operator-=(matrix_t<T> const& other)
 	}
 	else
 	{
-		std::cout << "An error has occured while reading input data\n";
+		throw std::invalid_argument("Error");
 	}
 
 	return *this;
@@ -235,7 +235,7 @@ matrix_t<T>& matrix_t<T>::operator+=(matrix_t<T>const& other)
 	}
 	else
 	{
-		std::cout << "An error has occured while reading input data\n";
+		throw std::invalid_argument("Error");
 	}
 
 	return *this;
@@ -272,7 +272,7 @@ matrix_t<T>& matrix_t<T>::operator*=(matrix_t<T> const& other)
 	}
 	else
 	{
-		std::cout << "An error has occured while reading input data\n";
+		throw std:: invalid_argument("Error");
 	}
 
 	return *this;
