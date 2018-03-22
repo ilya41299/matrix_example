@@ -4,25 +4,25 @@ template <typename T>
 
 class matrix_t {
 private:
-	T * * elements_;
+	T **elements_;
 	std::size_t rows_;
 	std::size_t collumns_;
 public:
-	matrix_t<T>();
-	matrix_t<T>(matrix_t<T>const & other);
-	matrix_t<T> & operator =(matrix_t<T> const & other);
-	~matrix_t<T>();
+	matrix_t();
+	matrix_t(matrix_t<T>const & other);
+	matrix_t & operator =(matrix_t<T> const & other);
+	~matrix_t();
 
 	std::size_t rows() const;
 	std::size_t collumns() const;
 
-	matrix_t<T> operator +(matrix_t<T> const & other) const;
-	matrix_t<T> operator -(matrix_t<T> const & other) const;
-	matrix_t<T> operator *(matrix_t<T> const & other) const;
+	matrix_t operator +(matrix_t<T> const & other) const;
+	matrix_t operator -(matrix_t<T> const & other) const;
+	matrix_t operator *(matrix_t<T> const & other) const;
 
-	matrix_t<T> & operator -=(matrix_t<T> const & other);
-	matrix_t<T> & operator +=(matrix_t<T> const & other);
-	matrix_t<T> & operator *=(matrix_t<T> const & other);
+	matrix_t & operator -=(matrix_t<T> const & other);
+	matrix_t & operator +=(matrix_t<T> const & other);
+	matrix_t & operator *=(matrix_t<T> const & other);
 
 	std::istream & read(std::istream & stream);
 	std::ostream & write(std::ostream  & stream) const;
@@ -35,7 +35,7 @@ matrix_t<T>::matrix_t()
 }
 
 template <typename T>
-matrix_t<T>::matrix_t(matrix_t<T> const& other)
+matrix_t<T>::matrix_t(matrix_t const& other)
 {
 	rows_ = other.rows_;
 	collumns_ = other.collumns_;
@@ -51,7 +51,7 @@ matrix_t<T>::matrix_t(matrix_t<T> const& other)
 }
 
 template <typename T>
-matrix_t<T>& matrix_t<T>::operator=(matrix_t<T>const& other)
+matrix_t<T>& matrix_t<T>::operator=(matrix_t const& other)
 {
 	if (this != &other)
 	{
@@ -103,7 +103,7 @@ std::size_t matrix_t<T>::collumns() const
 }
 
 template <typename T>
-matrix_t<T> matrix_t<T>::operator+(matrix_t<T> const& other) const
+matrix_t<T> matrix_t<T>::operator+(matrix_t const& other) const
 {
 	matrix_t<T> result;
 
@@ -134,7 +134,7 @@ matrix_t<T> matrix_t<T>::operator+(matrix_t<T> const& other) const
 }
 
 template <typename T>
-matrix_t<T> matrix_t<T>::operator-(matrix_t<T> const& other) const
+matrix_t<T> matrix_t<T>::operator-(matrix_t const& other) const
 {
 	matrix_t<T> result;
 
@@ -165,7 +165,7 @@ matrix_t<T> matrix_t<T>::operator-(matrix_t<T> const& other) const
 }
 
 template <typename T>
-matrix_t<T> matrix_t<T>::operator*(matrix_t<T> const& other) const
+matrix_t<T> matrix_t<T>::operator*(matrix_t const& other) const
 {
 	matrix_t<T> result;
 
@@ -200,7 +200,7 @@ matrix_t<T> matrix_t<T>::operator*(matrix_t<T> const& other) const
 }
 
 template <typename T>
-matrix_t<T>& matrix_t<T>::operator-=(matrix_t<T> const& other)
+matrix_t<T>& matrix_t<T>::operator-=(matrix_t const& other)
 {
 	if (rows_ == other.rows_ && collumns_ == other.collumns_)
 	{
@@ -221,7 +221,7 @@ matrix_t<T>& matrix_t<T>::operator-=(matrix_t<T> const& other)
 }
 
 template <typename T>
-matrix_t<T>& matrix_t<T>::operator+=(matrix_t<T>const& other)
+matrix_t<T>& matrix_t<T>::operator+=(matrix_t const& other)
 {
 	if (rows_ == other.rows_ && collumns_ == other.collumns_)
 	{
@@ -242,7 +242,7 @@ matrix_t<T>& matrix_t<T>::operator+=(matrix_t<T>const& other)
 }
 
 template <typename T>
-matrix_t<T>& matrix_t<T>::operator*=(matrix_t<T> const& other)
+matrix_t<T>& matrix_t<T>::operator*=(matrix_t const& other)
 {
 	matrix_t<T> result;
 
